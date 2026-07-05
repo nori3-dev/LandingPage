@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>nori33 apps ─ Windowsを、ちょっと快適に。個人開発ユーティリティ集</title>
+<title>nori3 apps ─ Windowsを、ちょっと快適に。個人開発ユーティリティ集</title>
 <meta name="description" content="Windowsを快適にする個人開発アプリ集。デスクトップ整理・高速化・右クリックメニュー編集・リマインダーなど。試用版を無料ダウンロードできます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,6 +163,18 @@
     font-size:1rem;line-height:1.6;color:var(--green-deep);
   }
   .app-body p{font-size:.88rem;color:var(--ink-soft)}
+  .app-links{display:flex;flex-direction:column;gap:4px}
+  .app-links a{
+    display:flex;align-items:center;gap:6px;min-width:0;
+    font-size:.82rem;color:var(--ink-soft);text-decoration:none;
+  }
+  .app-links a:hover .title{text-decoration:underline}
+  .app-links .src{
+    flex:none;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:.68rem;
+    color:var(--green-deep);background:var(--green-pale);border:1.5px solid var(--green-line);
+    border-radius:999px;padding:1px 10px;
+  }
+  .app-links .title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .tagrow{display:flex;gap:6px;flex-wrap:wrap}
   .tag{
     font-size:.7rem;font-weight:700;color:var(--green-deep);
@@ -343,6 +355,10 @@
             <h3>OutlookとGoogleカレンダーの予定を、デスクトップに常駐表示</h3>
             <p>iCal形式のURLを2つまで登録でき、仕事用・個人用をまとめて一覧。予定が迫ると色と点滅でお知らせ。会議のすっぽかしがなくなります。</p>
             <div class="tagrow"><span class="tag">リマインダー</span><span class="tag">2カレンダー対応</span><span class="tag">ToDo表示</span></div>
+            <div class="app-links">
+              <a href="https://note.com/ideal_oriole2241/n/nc83db2fb2e7f" target="_blank" rel="noopener"><span class="src">note</span><span class="title">自作アプリの開発過程を「全部」公開します</span></a>
+              <a href="https://zenn.dev/maedan/articles/57e4d74c2d2b8d" target="_blank" rel="noopener"><span class="src">Zenn</span><span class="title">カレンダーの予定をデスクトップに常駐表示するアプリを作りました</span></a>
+            </div>
             <div class="app-actions">
               <!-- ★試用版あり: downloads/ フォルダにZIPを置いて href を合わせる -->
               <a class="dl" href="downloads/ScheduleReminders-Setup-0.2.6.zip" download>試用版をダウンロード<span class="sub">無料 ─ ZIP</span></a>
