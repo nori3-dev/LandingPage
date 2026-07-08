@@ -151,9 +151,19 @@
   .app{
     background:var(--surface);border:3px solid var(--green-line);border-radius:var(--radius);
     overflow:hidden;display:flex;flex-direction:column;
+    scroll-margin-top:80px;
     transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   }
   .app:hover{transform:translateY(-4px);border-color:var(--green);box-shadow:0 10px 24px rgba(61,155,68,.16)}
+  .app:target{
+    border-color:var(--orange);
+    box-shadow:0 0 0 4px rgba(240,131,0,.22),0 10px 24px rgba(61,155,68,.16);
+    animation:app-target-flash 1.6s ease;
+  }
+  @keyframes app-target-flash{
+    0%,100%{background:var(--surface)}
+    20%{background:#FFF3E0}
+  }
   .app-bar{
     display:flex;align-items:center;justify-content:space-between;
     background:var(--green);padding:10px 18px;
@@ -287,7 +297,7 @@
       <p class="sec-desc">「なんか重い」を、設定とメモリの両面から解消するコンビです。</p>
       <div class="apps">
 
-        <article class="app">
+        <article class="app" id="1">
           <div class="app-bar"><span class="name">WinTrim</span><span class="trial-flag soon">試用版 準備中</span></div>
           <div class="app-body">
             <h3>レジストリの高速化設定を、トグル一つで安全に</h3>
@@ -301,7 +311,7 @@
           </div>
         </article>
 
-        <article class="app">
+        <article class="app" id="2">
           <div class="app-bar"><span class="name">RAMDash</span><span class="trial-flag soon">試用版 準備中</span></div>
           <div class="app-body">
             <h3>空きRAMをディスク化して、キャッシュを丸ごと退避</h3>
@@ -328,7 +338,7 @@
       <p class="sec-desc">散らかったデスクトップを「片づける」と「すぐ呼び出す」の両輪で解決します。</p>
       <div class="apps">
 
-        <article class="app">
+        <article class="app" id="3">
           <div class="app-bar"><span class="name">OmniDock</span><span class="trial-flag soon">試用版 準備中</span></div>
           <div class="app-body">
             <h3>画面端に潜む、"何でもできる"サイドバーランチャー</h3>
@@ -344,7 +354,7 @@
           </div>
         </article>
 
-        <article class="app">
+        <article class="app" id="4">
           <div class="app-bar"><span class="name">IconGrid</span><span class="trial-flag soon">試用版 準備中</span></div>
           <div class="app-body">
             <h3>デスクトップのアイコンを、グループ枠で仕分け</h3>
@@ -372,7 +382,7 @@
       <p class="sec-desc">予定の見落とし、ファイル探し、右クリックの手数。日々の小さなロスをなくします。</p>
       <div class="apps">
 
-        <article class="app">
+        <article class="app" id="5">
           <div class="app-bar"><span class="name">scheduleReminders</span><span class="trial-flag">試用版あり</span></div>
           <div class="app-body">
             <h3>OutlookとGoogleカレンダーの予定を、デスクトップに常駐表示</h3>
@@ -390,7 +400,7 @@
           </div>
         </article>
 
-        <article class="app">
+        <article class="app" id="6">
           <div class="app-bar"><span class="name">customMenu</span><span class="trial-flag">試用版あり</span></div>
           <div class="app-body">
             <h3>右クリックメニューを、自分仕様にカスタマイズ</h3>
@@ -407,7 +417,7 @@
           </div>
         </article>
 
-        <article class="app">
+        <article class="app" id="7">
           <div class="app-bar"><span class="name">タスクサーチ</span><span class="trial-flag soon">試用版 準備中</span></div>
           <div class="app-body">
             <h3>ファイルもアプリも、素早く検索してそのまま起動</h3>
@@ -423,7 +433,7 @@
           </div>
         </article>
 
-        <article class="app">
+        <article class="app" id="8">
           <div class="app-bar"><span class="name">LINEスタンプメーカー</span><span class="trial-flag soon">BOOTHにて公開中</span></div>
           <div class="app-body">
             <h3>画像から、LINEスタンプを一括生成</h3>
@@ -438,7 +448,7 @@
           </div>
         </article>
 
-        <article class="app">
+        <article class="app" id="9">
           <div class="app-bar"><span class="name">プログラマブルキーボード</span><span class="trial-flag soon">BOOTHにて公開中</span></div>
           <div class="app-body">
             <h3>Android用の、プログラマブルキーボード</h3>
