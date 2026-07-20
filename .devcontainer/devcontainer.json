@@ -7,6 +7,20 @@
 		"context": "..",
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 		"dockerfile": "../Dockerfile"
+	},
+	"mounts": [
+		"source=${localEnv:USERPROFILE}/.claude-global,target=/root/.claude,type=bind"
+	],
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+
+	// gh の認証情報を、永続マウント済みの /root/.claude 配下に置く。
+	// これによりコンテナを再作成しても `gh auth login` をやり直す必要がない。
+	"containerEnv": {
+		"GH_CONFIG_DIR": "/root/.claude/gh"
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.

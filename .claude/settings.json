@@ -1,0 +1,15 @@
+{
+    "hooks": {
+    "Notification": [
+      {
+        "matcher": "idle_prompt|permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -d 'Claude Codeが応答待ちです' -H 'Title: Claude Code' -H 'Priority: high' -H 'Tags: robot' https://ntfy.sh/Claude-e5d946f06f13a3ac"
+          }
+        ]
+      }
+    ]
+  }
+}
