@@ -10,6 +10,16 @@
           }
         ]
       }
+    ],
+    "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "P=$(basename \"${CLAUDE_PROJECT_DIR:-$PWD}\"); curl -s -d \"[$P] 応答が完了しました\" -H \"Title: Claude Code ($P)\" -H 'Tags: white_check_mark' https://ntfy.sh/Claude-e5d946f06f13a3ac"
+        }
+      ]
+    }
     ]
   }
 }
