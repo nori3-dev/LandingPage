@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "deny": [
+      "Read(//root/.claude/gh/**)",
+      "Edit(//root/.claude/gh/**)"
+    ]},
+    
     "hooks": {
     "Notification": [
       {
