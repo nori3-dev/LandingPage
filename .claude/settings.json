@@ -26,6 +26,28 @@
         }
       ]
     }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/subagent-start.js\""
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/subagent-stop.js\""
+          }
+        ]
+      }
     ]
   }
 }

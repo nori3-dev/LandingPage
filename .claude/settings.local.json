@@ -16,7 +16,7 @@
       "Bash(exiftool -v)",
       "Bash(grep -rnoE \"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,}\" /workspaces/LandingPage --include=\"*.html\" --include=\"*.json\" --include=\"Dockerfile\")",
       "Bash(node *)",
-      "Bash(unzip -l downloads/ScheduleReminders-Setup-0.2.6.zip)",
+      "Bash(unzip -l downloads/ScheduleReminders-Setup-0.2.6-Trial.zip)",
       "Bash(grep -a -oE \"C:\\\\\\\\\\\\\\\\[^\\\\\"<>|]{0,80}\" /tmp/claude-0/-workspaces-LandingPage/0d908afd-ab31-4fa6-89b2-b8fc078aef3c/scratchpad/extracted.exe)",
       "Bash(command -v git-filter-repo)",
       "Bash(git filter-repo *)",
@@ -41,7 +41,7 @@
       "WebFetch(domain:zenn.dev)",
       "Bash(git -C /workspaces/LandingPage status)",
       "Bash(unzip -l /workspaces/LandingPage/downloads/customMenu_Trial_Setup.zip)",
-      "Bash(unzip -l /workspaces/LandingPage/downloads/ScheduleReminders-Setup-0.2.6.zip)",
+      "Bash(unzip -l /workspaces/LandingPage/downloads/ScheduleReminders-Setup-0.2.6-Trial.zip)",
       "Bash(python3 *)"
     ]
   }
