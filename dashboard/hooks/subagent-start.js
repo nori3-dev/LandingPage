@@ -55,6 +55,7 @@ process.stdin.on('end', () => {
     agent.startedAt = now;
     agent.progress = 0;
     agent.result = { durationSec: null, tokens: null, toolCalls: null, summary: null };
+    agent.context = agent.context || { usedPct: null, tokenCount: null, contextWindowSize: null };
 
     state.events.push({ time: now, speaker: '指令塔', text: `${name} 誕生` });
   });

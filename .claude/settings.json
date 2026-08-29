@@ -1,18 +1,63 @@
 {
+
   "permissions": {
     "deny": [
       "Read(//root/.claude/gh/**)",
-      "Edit(//root/.claude/gh/**)"
-    ]},
-    
-    "hooks": {
+      "Edit(//root/.claude/gh/**)",
+
+      "Bash(git push*)",
+      "Bash(git commit*)",
+      "Bash(gh repo create*)",
+      "Bash(gh repo delete*)",
+      "Bash(gh repo edit*)",
+      "Bash(gh repo rename*)",
+      "Bash(gh repo archive*)",
+      "Bash(gh pr create*)",
+      "Bash(gh pr merge*)",
+      "Bash(gh pr close*)",
+      "Bash(gh pr edit*)",
+      "Bash(gh pr comment*)",
+      "Bash(gh issue create*)",
+      "Bash(gh issue close*)",
+      "Bash(gh issue edit*)",
+      "Bash(gh issue comment*)",
+      "Bash(gh release create*)",
+      "Bash(gh release delete*)",
+      "Bash(gh release upload*)",
+      "Bash(gh secret set*)",
+      "Bash(gh secret delete*)",
+      "Bash(gh variable set*)",
+      "Bash(gh workflow run*)",
+      "Bash(gh workflow enable*)",
+      "Bash(gh workflow disable*)",
+      "Bash(gh run cancel*)",
+      "Bash(gh run rerun*)",
+      "Bash(gh gist create*)",
+      "Bash(gh gist edit*)",
+      "Bash(gh gist delete*)",
+      "Bash(gh api -X*)",
+      "Bash(gh api --method*)",
+      "Bash(gh auth logout*)",
+      "Bash(gh auth refresh*)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/statusline.js\"",
+    "refreshInterval": 30
+  },
+  "subagentStatusLine": {
+    "type": "command",
+    "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/subagent-statusline.js\""
+  },
+  "hooks": {
     "Notification": [
       {
         "matcher": "idle_prompt|permission_prompt",
         "hooks": [
           {
             "type": "command",
-            "command": "curl -s -d 'Claude Codeが応答待ちです' -H 'Title: Claude Code' -H 'Priority: high' -H 'Tags: robot' https://ntfy.sh/Claude-e5d946f06f13a3ac"
+            "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/notification-attention.js\""
           }
         ]
       }
@@ -22,10 +67,52 @@
       "hooks": [
         {
           "type": "command",
-          "command": "P=$(basename \"${CLAUDE_PROJECT_DIR:-$PWD}\"); curl -s -d \"[$P] 応答が完了しました\" -H \"Title: Claude Code ($P)\" -H 'Tags: white_check_mark' https://ntfy.sh/Claude-e5d946f06f13a3ac"
+          "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/main-stop.js\""
         }
       ]
     }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/main-start.js\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/tool-start.js\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/tool-end.js\""
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dashboard/hooks/session-end.js\""
+          }
+        ]
+      }
     ],
     "SubagentStart": [
       {
