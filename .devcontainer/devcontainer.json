@@ -20,10 +20,13 @@
 
 	// コンテナ作成時に自動インストールする拡張機能
 	// markdown-pdf: 取扱説明書.md 等をPDF化するために使用（実行に必要な共有ライブラリはDockerfileに追加済み）
+	// openai.chatgpt: OpenAI Codex 拡張機能。Codex CLI バイナリを拡張機能自身が同梱するため
+	//   Dockerfile 側の追加インストールは不要。認証情報は下の CODEX_HOME で永続化する。
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"yzane.markdown-pdf"
+				"yzane.markdown-pdf",
+				"openai.chatgpt"
 			]
 		}
 	},
