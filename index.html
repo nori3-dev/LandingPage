@@ -211,7 +211,8 @@
   .dl .sub,.buy .sub,.manual .sub{display:block;font-weight:500;font-size:.68rem;opacity:.9}
   .dl.pending{background:#E8EBE6;color:#9AA49A;box-shadow:0 4px 0 #D2D8D0;pointer-events:none}
   .buy{background:#fff;color:var(--green-deep);border:2.5px solid var(--green);box-shadow:0 4px 0 var(--green-line)}
-  .buy:hover{box-shadow:0 2px 0 var(--green-line);transform:translateY(2px)}
+  .buy:disabled{background:#F3F4F2;color:var(--ink-soft);border-color:#D2D8D0;box-shadow:none;cursor:default}
+  .buy:hover:not(:disabled){box-shadow:0 2px 0 var(--green-line);transform:translateY(2px)}
 
   .manual{
     background:var(--green-pale);color:var(--green-deep);
@@ -393,6 +394,20 @@
       <div class="sec-head"><span class="en">Workflow</span><h2>毎日の操作を速くする</h2></div>
       <p class="sec-desc">予定の見落とし、ファイル探し、右クリックの手数。日々の小さなロスをなくします。</p>
       <div class="apps">
+
+        <article class="app" id="10">
+          <div class="app-bar"><span class="name">CtrlScope</span><span class="trial-flag soon">試用版 準備中</span></div>
+          <div class="app-body">
+            <h3>カーソルの先に、覗き窓と拡大鏡</h3>
+            <p>全画面の動画やゲーム、集中したい作業ウィンドウ、たくさんのウィンドウを開いている時——それを閉じたり最小化したりせずに、デスクトップのアイコンを操作できます</p>
+            <div class="tagrow"><span class="tag">デスクトップ操作</span><span class="tag">覗き窓</span><span class="tag">拡大鏡</span></div>
+            <div class="app-actions">
+              <button class="dl pending" type="button" disabled>試用版 準備中<span class="sub">近日公開</span></button>
+              <button class="buy" type="button" disabled>製品版を購入<span class="sub">近日公開</span></button>
+              <a class="manual" href="manual/CtrlScope-0.2.1.pdf" target="_blank" rel="noopener">取扱説明書<span class="sub">PDF ─ 別タブで開く</span></a>
+            </div>
+          </div>
+        </article>
 
         <article class="app" id="5">
           <div class="app-bar"><span class="name">scheduleReminders</span><span class="trial-flag">試用版あり</span></div>
