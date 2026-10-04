@@ -200,18 +200,25 @@
     background:var(--green-pale);border:1.5px solid var(--green-line);
     border-radius:999px;padding:2px 12px;
   }
-  .app-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;padding-top:8px}
-  .dl,.buy{
-    flex:1;min-width:150px;text-align:center;text-decoration:none;
+  .app-actions{margin-top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:8px}
+  .dl,.buy,.manual{
+    min-width:0;text-align:center;text-decoration:none;
     font-family:'M PLUS Rounded 1c',sans-serif;font-weight:800;font-size:.88rem;
     padding:11px 12px;border-radius:999px;
   }
-  .dl{background:var(--orange);color:#fff;box-shadow:0 4px 0 var(--orange-deep)}
+  .dl{grid-column:1 / -1;background:var(--orange);color:#fff;box-shadow:0 4px 0 var(--orange-deep)}
   .dl:hover{box-shadow:0 2px 0 var(--orange-deep);transform:translateY(2px)}
-  .dl .sub,.buy .sub{display:block;font-weight:500;font-size:.68rem;opacity:.9}
+  .dl .sub,.buy .sub,.manual .sub{display:block;font-weight:500;font-size:.68rem;opacity:.9}
   .dl.pending{background:#E8EBE6;color:#9AA49A;box-shadow:0 4px 0 #D2D8D0;pointer-events:none}
   .buy{background:#fff;color:var(--green-deep);border:2.5px solid var(--green);box-shadow:0 4px 0 var(--green-line)}
   .buy:hover{box-shadow:0 2px 0 var(--green-line);transform:translateY(2px)}
+
+  .manual{
+    background:var(--green-pale);color:var(--green-deep);
+    border:1.5px solid var(--green-line);cursor:pointer;
+  }
+  .manual:hover{background:#E3F0DC;border-color:var(--green)}
+  .manual:disabled{background:#F3F4F2;color:var(--ink-soft);border-color:#D2D8D0;cursor:default}
 
   /* ── press ──────────────────────────── */
   .press{
@@ -307,6 +314,7 @@
               <!-- 試用版が用意でき次第、class="dl pending" → class="dl" にして href を差し替え -->
               <a class="dl pending" href="#" aria-disabled="true">試用版 準備中<span class="sub">近日公開</span></a>
               <a class="buy" href="https://nori33.booth.pm/items/8553760?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=wintrim&amp;utm_content=card-buy" target="_blank" rel="noopener">製品版を購入<span class="sub">BOOTH ─ ¥200</span></a>
+              <button class="manual" type="button" disabled>取扱説明書<span class="sub">近日公開</span></button>
             </div>
           </div>
         </article>
@@ -323,6 +331,7 @@
             <div class="app-actions">
               <a class="dl" href="downloads/RAMDash-Setup-0.3.4-Trial.zip" download>試用版をダウンロード<span class="sub">無料 ─ 5日間 ─ ZIP</span></a>
               <a class="buy" href="https://nori33.booth.pm/items/8527152?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=ramdash&amp;utm_content=card-buy" target="_blank" rel="noopener">製品版を購入<span class="sub">BOOTH ─ ¥300</span></a>
+              <button class="manual" type="button" disabled>取扱説明書<span class="sub">近日公開</span></button>
             </div>
           </div>
         </article>
@@ -351,6 +360,7 @@
             <div class="app-actions">
               <a class="dl" href="downloads/OmniDock-Setup-0.6.3-Trial.zip" download>試用版をダウンロード<span class="sub">無料 ─ 5日間 ─ ZIP</span></a>
               <a class="buy" href="https://nori33.booth.pm/items/8420047?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=omnidock&amp;utm_content=card-buy" target="_blank" rel="noopener">製品版を購入<span class="sub">BOOTH ─ ¥300</span></a>
+              <a class="manual" href="manual/OmniDock-0.6.3.pdf" target="_blank" rel="noopener">取扱説明書<span class="sub">PDF ─ 別タブで開く</span></a>
             </div>
           </div>
         </article>
@@ -368,6 +378,7 @@
             <div class="app-actions">
               <a class="dl pending" href="#" aria-disabled="true">試用版 準備中<span class="sub">近日公開</span></a>
               <a class="buy" href="https://nori33.booth.pm/items/6572311?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=icongrid&amp;utm_content=card-buy" target="_blank" rel="noopener">製品版を購入<span class="sub">BOOTH ─ ¥200</span></a>
+              <button class="manual" type="button" disabled>取扱説明書<span class="sub">近日公開</span></button>
             </div>
           </div>
         </article>
@@ -395,8 +406,9 @@
             </div>
             <div class="app-actions">
               <!-- ★試用版あり: downloads/ フォルダにZIPを置いて href を合わせる -->
-              <a class="dl" href="downloads/ScheduleReminders-Setup-0.2.9-Trial.zip" download>試用版をダウンロード<span class="sub">無料 ─ 5日間 ─ ZIP</span></a>
+              <a class="dl" href="downloads/ScheduleReminders-Setup-0.2.10-Trial.zip" download>試用版をダウンロード<span class="sub">無料 ─ 5日間 ─ ZIP</span></a>
               <a class="buy" href="https://nori33.booth.pm/items/6989854?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=schedulereminders&amp;utm_content=card-buy" target="_blank" rel="noopener">製品版を購入<span class="sub">BOOTH ─ ¥200</span></a>
+              <a class="manual" href="manual/ScheduleReminders-0.2.10.pdf" target="_blank" rel="noopener">取扱説明書<span class="sub">PDF ─ 別タブで開く</span></a>
             </div>
           </div>
         </article>
@@ -414,6 +426,7 @@
             <div class="app-actions">
               <a class="dl" href="downloads/customMenu_Setup-1.9-Trial.zip" download>試用版をダウンロード<span class="sub">無料 ─ 5日間 ─ ZIP</span></a>
               <a class="buy" href="https://nori33.booth.pm/items/7291320?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=custommenu&amp;utm_content=card-buy" target="_blank" rel="noopener">製品版を購入<span class="sub">BOOTH ─ ¥200</span></a>
+              <button class="manual" type="button" disabled>取扱説明書<span class="sub">近日公開</span></button>
             </div>
           </div>
         </article>
@@ -430,6 +443,7 @@
             <div class="app-actions">
               <a class="dl pending" href="#" aria-disabled="true">試用版 準備中<span class="sub">近日公開</span></a>
               <a class="buy" href="https://nori33.booth.pm/items/7985536?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=tasksearch&amp;utm_content=card-buy" target="_blank" rel="noopener">製品版を購入<span class="sub">BOOTH ─ ¥100</span></a>
+              <button class="manual" type="button" disabled>取扱説明書<span class="sub">近日公開</span></button>
             </div>
           </div>
         </article>
@@ -445,6 +459,7 @@
             </div>
             <div class="app-actions">
               <a class="buy" href="https://nori33.booth.pm/items/8338212?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=linestampmaker&amp;utm_content=card-buy" target="_blank" rel="noopener">ショップで見る<span class="sub">BOOTH</span></a>
+              <button class="manual" type="button" disabled>取扱説明書<span class="sub">近日公開</span></button>
             </div>
           </div>
         </article>
@@ -460,6 +475,7 @@
             </div>
             <div class="app-actions">
               <a class="buy" href="https://nori33.booth.pm/items/8078813?utm_source=trial-site&amp;utm_medium=referral&amp;utm_campaign=macropad&amp;utm_content=card-buy" target="_blank" rel="noopener">ショップで見る<span class="sub">BOOTH</span></a>
+              <button class="manual" type="button" disabled>取扱説明書<span class="sub">近日公開</span></button>
             </div>
           </div>
         </article>
